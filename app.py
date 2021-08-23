@@ -15,10 +15,9 @@ def homepage():
 @app.route("/api/predict", methods=["POST"])
 def predict():
     if request.method == "POST":  # if the request method is POST
-        x_values = request.get_json()
-        print(x_values)
+        x_values = request.get_json()  # get the json data
         model = joblib.load("model.pkl")  # load the model
-        prediction = model.predict(
+        prediction = model.predict(  # perform the prediction by passing in your x-values
             [
                 int(x_values['age']),
                 float(x_values['income']),
@@ -28,6 +27,7 @@ def predict():
             ]
         )
 
+        # return the predicted result
         return jsonify({"prediction": prediction})
 
 
