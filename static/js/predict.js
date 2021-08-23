@@ -8,7 +8,9 @@ d3.select("#btn-predict").on("click", ()=>{
     
     // perform a POST request using D3 
     d3.json("/api/predict", {
+        // perform a POST request 
         method: "POST",
+        // pass the following values in the 'body' of the POST request 
         body: JSON.stringify({
             "age": age,
             "income": income,
@@ -16,13 +18,18 @@ d3.select("#btn-predict").on("click", ()=>{
             "assets": assets,
             "liability": liability
           }),
+        // the headers contains metadata about the POST request. We want to say that the data sent is "json" data, so we set "Content-type": "application/json"
         headers: {
             "Content-type": "application/json"
         }
-    }).then(response => {
-        var prediction_output = d3.select("#prediction-output");
+    }).then(response => { // when we receive the the response back, then we perform the steps below
+        var prediction_output = d3.select("#prediction-output"); // select the area to put our predictions to
+        
+        // if rich 
         if(response.prediction){
-            prediction_output.text("You'll be rich!");
+            prediction_output.text("You'll be rich!"); 
+        
+        // if not rich
         } else { 
             prediction_output.text("You'll not be rich :(");
         }
