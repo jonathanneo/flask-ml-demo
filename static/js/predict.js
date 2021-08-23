@@ -24,9 +24,9 @@ d3.select("#btn-predict").on("click", ()=>{
         }
     }).then(response => { // when we receive the the response back, then we perform the steps below
         var prediction_output = d3.select("#prediction-output"); // select the area to put our predictions to
-        
+        console.log(response.prediction); // log out the result
         // if rich 
-        if(response.prediction){
+        if(response.prediction == "rich"){
             prediction_output.text("You'll be rich!"); 
         
         // if not rich

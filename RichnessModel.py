@@ -28,6 +28,6 @@ class RichnessModel():
             total_lifetime_net_income - current_debt
 
         if total_lifetime_net_assets >= 1000000:
-            return True
+            return "rich"
         else:
-            return False
+            return "not rich"
