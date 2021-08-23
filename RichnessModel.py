@@ -1,6 +1,6 @@
 class RichnessModel():
     """
-    A model that predicts whether you are going to be rich or not. 
+    A make belief model that predicts whether you are going to be rich or not. 
     """
 
     def predict(self, x_values: list) -> bool:
